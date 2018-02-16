@@ -1,0 +1,1 @@
+netstat -rn | grep default | cut -d \t -f 2 | tr -s ' ' | cut -d ' ' -f 2 | sed -e '2d'

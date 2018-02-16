@@ -1,0 +1,10 @@
+#!/bin/bash
+touch /etc/last_crontab_check
+last_edit=`stat -c %Y /etc/crontab`
+while read -r last_check; do
+	if [ $last_edit != $last_check ]
+	then
+		echo "Le fichier /etc/crontab a ete modifie" | mail root -s "Verification crontab" root
+	fi
+done < ./test
+echo "$last_edit" > test

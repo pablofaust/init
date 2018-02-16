@@ -1,0 +1,2 @@
+ps aux | grep 'sshd' | sed -e '2d'
+# ou simplement cat /var/run/sshd.pid
